@@ -23,6 +23,13 @@ ENV PULSE_SERVER /run/pulse/native
 # The command that run chromium with the home page
 CMD ["chromium-browser","--no-sandbox", "--no-first-run","http://google.com"]
 
+# Set the Chrome repo.
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+
+# Install Chrome.
+RUN apt-get update && apt-get -y install google-chrome-stable
+
 # Install flutter beta
 RUN curl -L https://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_1.22.0-12.1.pre-beta.tar.xz | tar -C /opt -xJ
 
