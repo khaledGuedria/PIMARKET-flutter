@@ -1,4 +1,4 @@
-# my_app
+# Flutter 4SIM Workshop
 
 A Mobile Flutter project, associated with a Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
 
