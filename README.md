@@ -1,10 +1,12 @@
-# my_app
+# Flutter 4SIM Workshop
 
-A new Flutter project.
+A Mobile Flutter project, associated with a Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
 
-## Getting Started
+## Usage : Getting Started
 
 This project is a starting point for a Flutter application.
+
+## Help and Support
 
 A few resources to get you started if this is your first Flutter project:
 
