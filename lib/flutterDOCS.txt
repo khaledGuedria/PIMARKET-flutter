@@ -1,0 +1,237 @@
+//########################################################################################
+//########################################################################################
+//########################################################################################
+
+
+//Headers
+Map<String,String> headers = {
+
+	"Content-Type" : "application/json; charset=UTF-8"
+	
+};
+
+//object to be inserted
+Map<String,dynamic> carToInsert = {
+	
+
+	"make" : _make,
+	"model" : _model,
+	"description" : _description,
+	"quantity" : _quantity,
+
+};
+
+//URL
+String addUrl = "http://10.0.2.2:9090/car";
+
+
+
+http.post(Uri.parse(addUrl), headers : headers, body: json.encore(carToInsert)).then((http.Response response){
+	
+	var message = response.statusCode == 201 ? "Added successfully" : "Something went wrong!"
+
+});
+
+
+//########################################################################################
+//########################################################################################
+//########################################################################################
+
+//var
+String _baseImageUrl = "http://10.0.2.2:9090/img/"
+String getURL = "http://10.0.2.2:9090/car";
+
+void initState() {
+	
+	http.get(Uri.parse(getURL)).then((http.Response response){
+	
+	List<dynamic> carsFromServer = json.decode(response.body);
+	for(var item in carsFromServer){
+
+		cars.add(CarView(item["_id"], item["make"], item["model"], this._baseImageUrl + item["image"]));
+	}
+
+	setState(){
+
+	};
+
+});
+}
+
+
+
+//########################################################################################
+//########################################################################################
+//########################################################################################
+
+
+
+Future<bool> fetchedCar;
+
+String _baseImageUrl = "http://10.0.2.2:9090/img/";
+String getURL = "http://10.0.2.2:9090/car"; 
+
+Future<bool> fetchCar(){
+	
+
+	http.Response response = await http.get(Uri.parse(getURL));
+	List<dynamic> carsFromServer = json.decode(response.body);
+	for(var item in carsFromServer){
+
+		cars.add(CarView(item["_id"], item["make"], item["model"], this._baseImageUrl + item["image"]));
+	};
+
+
+	return true;
+
+}
+
+
+void initState() {
+	
+
+	fetchedcar = fetchCar();
+
+}
+
+
+//BUILD
+
+return FutureBuilder(
+	
+	future: fetchedCar,
+	builder: (BuildContext context, AsyncSnapshot<bool> snapshot){
+
+	if(snapshot.hasData{
+
+		return Listview.builder;
+
+	}else{
+
+		return Center(
+
+		child: circularProgressIndicator();
+
+		)
+
+	}
+
+	}
+
+)
+
+
+
+//########################################################################################
+//########################################################################################
+//########################################################################################
+
+//var
+  String _id;
+  String _make = "";
+  String _model = "";
+  String _image = "";
+  String _description = "";
+  int _quantity = 0;
+
+Future<bool> fetchedCar;
+
+
+//action
+Future<bool> fetchCar(){
+	
+	http.Response response = await http.get(Uri.parse("http://10.0.2.2:9090/car"+ widget._id));
+	Map<String,dynamic> carModel = json.decode(response.body);
+
+	widget._id = carModel["_id"];
+	widget._make = carModel["make"];
+	widget._model = carModel["model"];
+	widget._description = carModel["description"];
+	widget._quantity = carModel["quantity"];
+
+	return true;
+}
+
+
+void initState(){
+	
+	fetchedcar = fetchCar();
+
+}
+
+//BUILD
+	//SCAFORLD
+
+		body: FutureBuilder(
+
+		future: fetchedCar,
+		builder: (BuilderContext context, AsyncSnapshot<bool> snapshot){
+
+			if(snapshot.hasData){
+
+				return ...
+
+			}else {
+
+				return Center(
+					child: CircularProgressIndicator();
+				)
+			}
+
+		}
+
+	)
+
+
+
+//########################################################################################
+//########################################################################################
+//########################################################################################
+
+//var
+String URLY = "http://10.0.2.2:9090/car/"+ widget._id; 
+
+
+FlatButton(
+
+	child: Text("Book Car"),
+	onPressed : (){
+
+		http.patch(Uri.parse(URLY)).then((http.Response response){
+
+			http.get(Uri.parse(URLY)).then((http.Response response){
+
+	Map<String,dynamic> carModel = json.decode(response.body);
+
+	widget._id = carModel["_id"];
+	widget._make = carModel["make"];
+	widget._model = carModel["model"];
+	widget._description = carModel["description"];
+	widget._quantity = carModel["quantity"];
+
+	setState(){
+	
+	}
+
+
+			});
+
+		});
+	}
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
