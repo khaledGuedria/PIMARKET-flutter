@@ -2,7 +2,7 @@
 
 ## Flutter 4SIM Workshop
 
-A Mobile app developped within Flutter plateform, 4SIM flutter workshop which illustrate a car booking agency.
+A Mobile app developed within Flutter plateform, 4SIM flutter workshop which illustrate a car booking agency.
 
 This project is associated with Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
 
