@@ -19,7 +19,7 @@ This project is a starting point for a Flutter application.
 5. Open http://localhost:3015/ on your browser [Supported browsers: Chrome - Firefox - Edge - Safari]
 6. For better and real experience, try right-click > Inspect then : 
 
-![alt text](https://github.com/khaledGuedria/PIMARKET-flutter/blob/main/1.png?raw=true)
+![alt text](https://github.com/khaledGuedria/PIMARKET-flutter/blob/main/Assets/screenshots/1.png?raw=true)
 
 and choose the device you desire simulate the rendering on.
 
