@@ -4,7 +4,7 @@
 
 A Mobile app developed within Flutter plateform, 4SIM flutter workshop which illustrate a car booking agency.
 
-This project is associated with Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
+This project is containerized with Docker to try CI/CD [Continuous integration/ Continuous Delivery] on flutter apps and run it as a WEB App thanks to the second release since 15-03-2021.
 
 ## Usage : Getting Started
 
