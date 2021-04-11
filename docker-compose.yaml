@@ -1,6 +1,6 @@
-version: '3.6'
+version: "3.9"
 services:
   webapp:
-    image: myprog:v2
+    build: .
     ports:
-      - 3015:3015
+      - "3015:3015"
