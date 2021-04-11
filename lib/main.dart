@@ -21,11 +21,10 @@ class MyApp extends StatelessWidget {
       //home : ListCar(),
       //home : TabsInterface(),
       //home : BottomNavigation(),
-
       routes: {
 
         "/" : (BuildContext context){
-          return ListCar();
+          return TabsInterface();
         },
         "/add" : (BuildContext context){
         return AddCar();
