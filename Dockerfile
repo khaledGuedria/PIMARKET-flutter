@@ -6,37 +6,13 @@ RUN apt-get install -y curl nano socat unzip wget
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-#Install Chromium
-# Packages needed for chromium and add a conf line in pulse
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-    chromium-browser libgl1-mesa-dri libcanberra-gtk-module libexif-dev pulseaudio \
-    && rm -rf /tmp/* /var/{tmp,cache}/* /var/lib/{apt,dpkg}/ \
-    && echo enable-shm=no >> /etc/pulse/client.conf
-
-# Create a group and a user with same id of host user
-RUN groupadd -f -g 1000 user
-RUN adduser --uid 1000 --gid 1000 --disabled-login --gecos 'User' user
-ENV HOME /home/user 
-
-# Conf for sound
-ENV PULSE_SERVER /run/pulse/native
-# The command that run chromium with the home page
-CMD ["chromium-browser","--no-sandbox", "--no-first-run","http://google.com"]
-
-# Set the Chrome repo.
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-
-# Install Chrome.
-RUN apt-get update && apt-get -y install google-chrome-stable
-
 # Install flutter beta
 RUN curl -L https://storage.googleapis.com/flutter_infra/releases/beta/linux/flutter_linux_1.22.0-12.1.pre-beta.tar.xz | tar -C /opt -xJ
 
 #Create flutter env
 ENV PATH "$PATH:/opt/flutter/bin"
 
-# Initialize web-app
+# Switch to
 WORKDIR /opt
 
 # Copy it into docker container
@@ -45,12 +21,15 @@ COPY . ./
 # Enable web capabilities
 RUN flutter config --enable-web
 RUN flutter upgrade
+
+#Install flutter dependencies
 RUN flutter pub get
-#RUN flutter pub global activate webdev
+
+#Check flutter Prerequisites
 RUN flutter doctor
 
-#Check available devices
-RUN flutter devices
+#Enable flutter web for old projects
+RUN flutter create .
 
-#RUN FLUTTER AS WEB APP
-RUN flutter run -d chrome
+#R Flutter app as webapp
+CMD ["flutter", "run", "-d", "web-server", "--web-port", "3015"]

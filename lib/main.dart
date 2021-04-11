@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
 
         "/" : (BuildContext context){
-          return LaunchScreen();
+          return ListCar();
         },
         "/add" : (BuildContext context){
         return AddCar();

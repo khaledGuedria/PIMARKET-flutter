@@ -1,13 +1,6 @@
-version: '3.1'
+version: '3.6'
 services:
   webapp:
-    container_name: myprog
-    restart: always
-    image: myprog
+    image: myprog:v2
     ports:
-      - 5001:5001 
-    build:
-      context: ./
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: ["flutter", "pub", "global", "run", "webdev", "serve", "0.0.0.0:5001"]
+      - 3015:3015
