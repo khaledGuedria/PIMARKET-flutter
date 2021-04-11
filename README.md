@@ -1,8 +1,10 @@
-# PIMARKET
+# PIMARKET 🚧
 
 ## Flutter 4SIM Workshop
 
-A Mobile Flutter project, associated with Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
+A Mobile app developped within Flutter plateform, 4SIM flutter workshop which illustrate a car booking agency.
+
+This project is associated with Docker [DockerFile] to run the project as a WEB App thanks to the second release of Flutter.
 
 ## Usage : Getting Started
 
