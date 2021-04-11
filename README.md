@@ -23,7 +23,7 @@ This project is a starting point for a Flutter application.
 
 and choose the device you desire simulate the rendering on.
 
-![alt text](https://github.com/khaledGuedria/PIMARKET-flutter/blob/main/2.png?raw=true)
+![alt text](https://github.com/khaledGuedria/PIMARKET-flutter/blob/main/Assets/screenshots/2.png?raw=true)
 
 ## Help and Support
 
