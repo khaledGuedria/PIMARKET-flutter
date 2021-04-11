@@ -12,9 +12,11 @@ This project is a starting point for a Flutter application.
 
 ### Prerequisites
 
-🦊 Git - Latest source Release 2.31.1 Release Notes (2021-03-26) [https://git-scm.com/downloads]
-🐋 Docker - Latest Version 20.10 [https://docs.docker.com/get-started/]
-🌐 Browser - [Supported browsers: Chrome - Firefox - Edge - Safari]
+🦊 Git - Latest source Release 2.31.1 Release Notes (2021-03-26) [https://git-scm.com/downloads].
+
+🐋 Docker - Latest Version 20.10 [https://docs.docker.com/get-started/].
+
+🌐 Browser - [Supported browsers: Chrome - Firefox - Edge - Safari].
 
 ### USAGE
 
