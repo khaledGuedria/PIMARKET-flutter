@@ -32,4 +32,4 @@ RUN flutter doctor
 RUN flutter create .
 
 #R Flutter app as webapp
-CMD ["flutter", "run", "-d", "web-server", "--web-port", "3015"]
+#CMD ["flutter", "run", "-d", "web-server", "--web-port", "3000"]
