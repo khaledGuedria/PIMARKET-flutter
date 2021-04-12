@@ -2,7 +2,6 @@ FROM ubuntu:20.04
 
 # Prerequisites
 RUN apt-get update && apt-get install -y unzip xz-utils git openssh-client curl && apt-get upgrade -y && rm -rf /var/cache/apt
-RUN apt-get install -y curl nano socat unzip wget
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -30,6 +29,3 @@ RUN flutter doctor
 
 #Enable flutter web for old projects
 RUN flutter create .
-
-#R Flutter app as webapp
-#CMD ["flutter", "run", "-d", "web-server", "--web-port", "3000"]
