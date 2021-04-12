@@ -24,7 +24,7 @@ This project is a starting point for a Flutter application.
 2. Open the command line [Terminal]
 3. Migrate into this repo on your local machine [cd /path/to/this/repo]
 4. Type the command : docker-compose up -d
-5. Open http://localhost:3015/ on your browser
+5. Open http://localhost:8080/ on your browser
 6. For better and real experience, try right-click > Inspect then : 
 
 ![alt text](https://github.com/khaledGuedria/PIMARKET-flutter/blob/main/Assets/screenshots/1.png?raw=true)
